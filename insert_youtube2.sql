@@ -1,4 +1,19 @@
-use database youtube2
+USE youtube2;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Borrar datos existentes antes de insertar nuevos registros
+TRUNCATE TABLE Channels;
+TRUNCATE TABLE Comments;
+TRUNCATE TABLE Likes_Dislikes_Comments;
+TRUNCATE TABLE Likes_Dislikes_Videos;
+TRUNCATE TABLE Playlist;
+TRUNCATE TABLE Playlist_Videos;
+TRUNCATE TABLE Subscriptions;
+TRUNCATE TABLE Tags;
+TRUNCATE TABLE Users;
+TRUNCATE TABLE Videos;
+TRUNCATE TABLE Videos_Tags;
 
 -- insert users
 INSERT INTO Users (Email, Password, Username, BirthDate, Gender, Country, PostalCode) VALUES 
@@ -100,6 +115,10 @@ INSERT INTO Likes_Dislikes_Comments (UserID, CommentID, Type) VALUES
 (1, 6, 'Like'),
 (2, 7, 'Like'),
 (3, 8, 'Like');
+
+
+-- Reactivar claves foráneas
+SET FOREIGN_KEY_CHECKS = 1;
 
 use youtube2;
 
